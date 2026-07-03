@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tiffany's Fab Finds</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Work+Sans:wght@400;500;600&family=Caveat:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream: #FBF5EC;
+    --paper: #FFFDF9;
+    --plum: #5B2E3B;
+    --plum-deep: #3E1F28;
+    --rose: #C98A96;
+    --sage: #7C9174;
+    --gold: #C9A24B;
+    --ink: #2E2A28;
+    --stamp-red: #B5473D;
+    --line: rgba(46,42,40,0.12);
+  }
+
+  *{ box-sizing:border-box; }
+
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 15% 0%, rgba(124,145,116,0.10), transparent 45%),
+      radial-gradient(circle at 90% 10%, rgba(201,138,150,0.12), transparent 40%),
+      var(--cream);
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    padding:40px 16px 60px;
+  }
+
+  .page{
+    width:100%;
+    max-width:420px;
+  }
+
+  /* ---------- HEADER ---------- */
+  header{
+    text-align:center;
+    margin-bottom:30px;
+    position:relative;
+  }
+
+  .avatar{
+    width:88px;
+    height:88px;
+    margin:0 auto 14px;
+    border-radius:50%;
+    background: linear-gradient(155deg, var(--plum), var(--plum-deep));
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-family:'Fraunces', serif;
+    font-size:30px;
+    color:var(--cream);
+    box-shadow: 0 6px 18px rgba(59,31,40,0.25);
+    border: 3px solid var(--paper);
+  }
+  /* Replace initials below, or swap this div for <img src="your-photo.jpg" ...> */
+
+  h1{
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:28px;
+    margin:0 0 6px;
+    color:var(--plum-deep);
+    letter-spacing:0.2px;
+  }
+
+  .tagline{
+    font-size:14.5px;
+    color:var(--ink);
+    opacity:0.85;
+    margin:0 auto 14px;
+    max-width:280px;
+    line-height:1.5;
+  }
+
+  .credential{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    padding:6px 14px;
+    border-radius:100px;
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--plum);
+    box-shadow: 0 2px 6px rgba(59,31,40,0.06);
+  }
+  .credential::before{
+    content:"✦";
+    color:var(--gold);
+  }
+
+  /* ---------- LINK CARDS ---------- */
+  .links{
+    display:flex;
+    flex-direction:column;
+    gap:14px;
+  }
+
+  .card{
+    position:relative;
+    display:flex;
+    align-items:center;
+    gap:14px;
+    background:var(--paper);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:16px 18px;
+    text-decoration:none;
+    color:var(--ink);
+    box-shadow: 0 3px 10px rgba(59,31,40,0.06);
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+  .card:hover, .card:focus-visible{
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(59,31,40,0.13);
+    outline: 2px solid var(--sage);
+    outline-offset: 2px;
+  }
+
+  .card .icon{
+    flex:0 0 auto;
+    width:38px;
+    height:38px;
+    border-radius:10px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    background: var(--cream);
+  }
+
+  .card .text{ flex:1; min-width:0; }
+  .card .title{
+    font-weight:600;
+    font-size:15.5px;
+    margin:0 0 2px;
+  }
+  .card .subtitle{
+    font-size:12.5px;
+    opacity:0.7;
+    margin:0;
+  }
+
+  .card .arrow{
+    flex:0 0 auto;
+    opacity:0.35;
+    font-size:16px;
+  }
+
+  /* grading-stamp badge for featured picks */
+  .stamp{
+    position:absolute;
+    top:-10px;
+    right:-8px;
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    border:2px dashed var(--stamp-red);
+    color:var(--stamp-red);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    line-height:1;
+    font-family:'Fraunces', serif;
+    font-weight:600;
+    font-size:11px;
+    transform: rotate(-11deg);
+    background: rgba(255,253,249,0.9);
+    text-align:center;
+  }
+  .stamp span{ font-size:14px; }
+
+  .divider{
+    text-align:center;
+    font-family:'Caveat', cursive;
+    font-size:18px;
+    color:var(--sage);
+    margin:26px 0 14px;
+  }
+
+  /* ---------- SOCIAL ROW ---------- */
+  .social{
+    display:flex;
+    justify-content:center;
+    gap:14px;
+    margin-top:22px;
+  }
+  .social a{
+    width:44px;
+    height:44px;
+    border-radius:50%;
+    background:var(--paper);
+    border:1px solid var(--line);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    font-size:18px;
+    color:var(--plum);
+    box-shadow: 0 2px 6px rgba(59,31,40,0.06);
+    transition: transform 0.15s ease;
+  }
+  .social a:hover{ transform: translateY(-2px); }
+
+  footer{
+    text-align:center;
+    margin-top:30px;
+    font-family:'Caveat', cursive;
+    font-size:22px;
+    color:var(--plum);
+    opacity:0.85;
+  }
+  footer .apple{ font-size:16px; }
+
+  @media (prefers-reduced-motion: reduce){
+    .card, .social a{ transition:none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <header>
+    <div class="avatar">TF</div>
+    <!-- EDIT: swap initials/avatar div above for a real photo if you'd like -->
+    <h1>Tiffany's Fab Finds</h1>
+    <p class="tagline">Beauty &amp; teacher finds for women 50+ 🌸<br>Real classroom-tested picks, no fluff.</p>
+    <span class="credential">NBCT Teacher</span>
+  </header>
+
+  <div class="links">
+
+    <!-- FEATURED LINK 1 -->
+    <a class="card" href="https://www.amazon.com/YOUR-LOVEVOOK-LINK" target="_blank" rel="noopener">
+      <div class="stamp">A+<span>Fave</span></div>
+      <div class="icon">👜</div>
+      <div class="text">
+        <p class="title">LOVEVOOK Teacher Tote</p>
+        <p class="subtitle">My everyday classroom bag</p>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <!-- FEATURED LINK 2 -->
+    <a class="card" href="https://www.amazon.com/YOUR-PLANNER-LINK" target="_blank" rel="noopener">
+      <div class="stamp">A+<span>Fave</span></div>
+      <div class="icon">📅</div>
+      <div class="text">
+        <p class="title">Big Happy Planner — Snoopy Teacher Edition</p>
+        <p class="subtitle">Keeps my whole year straight</p>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <!-- LINK 3 -->
+    <a class="card" href="https://www.amazon.com/YOUR-HOLEPUNCH-LINK" target="_blank" rel="noopener">
+      <div class="icon">✂️</div>
+      <div class="text">
+        <p class="title">Craftelier Hole Punch</p>
+        <p class="subtitle">A tiny tool I use weekly</p>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+    <!-- LINK 4: full storefront -->
+    <a class="card" href="https://www.amazon.com/shop/YOUR-STOREFRONT" target="_blank" rel="noopener">
+      <div class="icon">🛍️</div>
+      <div class="text">
+        <p class="title">Shop All My Amazon Finds</p>
+        <p class="subtitle">Everything I recommend, in one place</p>
+      </div>
+      <div class="arrow">→</div>
+    </a>
+
+  </div>
+
+  <div class="divider">✎ follow along ✎</div>
+
+  <div class="social">
+    <a href="https://www.tiktok.com/@YOUR-TIKTOK-HANDLE" target="_blank" rel="noopener" aria-label="TikTok">♪</a>
+    <a href="https://www.instagram.com/YOUR-INSTAGRAM-HANDLE" target="_blank" rel="noopener" aria-label="Instagram">◎</a>
+    <a href="https://www.facebook.com/YOUR-FACEBOOK-PAGE" target="_blank" rel="noopener" aria-label="Facebook">f</a>
+  </div>
+
+  <footer>with love, Tiffany <span class="apple">🍎</span></footer>
+
+</div>
+
+</body>
+</html>
